@@ -1,0 +1,23 @@
+Import( 'env' )
+
+for Source in env.GlobFiles('*.cpp'):
+    env.BuildTest( Source[:-4], Source )
+
+# Another alternative approach to listing files is
+# to write them as an array and then iterate over that
+# to perform the required tasks.
+
+#Tests = [
+#    'dispatch_int',
+#    'dispatch_void',
+#    'nested_dispatch',
+#    'post_int',
+#    'post_void',
+#    'wrap_dispatch_int',
+#    'wrap_dispatch_void',
+#    'wrap_post_int',
+#    'wrap_post_void',
+#]
+#
+#for Test in Tests:
+#    env.BuildTest( Test, Test + ".cpp" )

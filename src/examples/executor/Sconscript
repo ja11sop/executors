@@ -1,0 +1,17 @@
+Import('env')
+
+#env.BuildWith( 'boost' ) # not required as it will be
+                          # added lazily since we link to
+                          # some boost libraries
+
+env.AppendUnique( DYNAMICLIBS = [
+    env.BoostSharedLibrary( 'system' ),
+    env.BoostSharedLibrary( 'chrono' ),
+    env.BoostSharedLibrary( 'coroutine' ),
+    env.BoostSharedLibrary( 'context' ),
+    env.BoostSharedLibrary( 'thread' ),
+] )
+
+for Source in env.GlobFiles('*.cpp'):
+    env.Build( Source[:-4], Source )
+

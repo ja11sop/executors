@@ -1,0 +1,35 @@
+Import('env', 'final_dir' )
+
+
+env.Build( 'market_data_dump', [
+    'common/market_data.cpp',
+    'common/order_side.cpp',
+    'common/udp_socket.cpp',
+    'client/market_data_dump.cpp'
+] )
+
+
+env.Build( 'enter_one_order', [ 
+    'common/order_management.cpp',
+    'common/order_side.cpp',
+    'common/udp_socket.cpp',
+    'client/enter_one_order.cpp'
+] )
+
+
+env.Build( 'trading_server', [ 
+    'common/order_management.cpp',
+    'common/order_side.cpp',
+    'common/market_data.cpp',
+    'common/udp_socket.cpp',
+    'server/connection_handler.cpp',
+    'server/market_by_order.cpp',
+    'server/market_data_bus.cpp',
+    'server/order_book.cpp',
+    'server/order_management_bus.cpp',
+    'server/price_time_order_book.cpp',
+    'server/server.cpp'
+] )
+
+
+env.Install( final_dir, ['ports.txt', 'symbols.txt'] )

@@ -1,0 +1,23 @@
+Import( 'env' )
+
+# The BuildTest() method differs from the Build() method
+# in that if `--test` is passed on the commandline executable
+# generated at the Build() step will be executed using the
+# default or specified test runner.
+
+for Source in env.GlobFiles('*.cpp'):
+    env.BuildTest( Source[:-4], Source )
+
+# Alternatively we can list all the files as a
+# docstring and Split() them into a list for
+# processing. For example:
+
+#Tests = """
+#	service_construction
+#	service_inheritance
+#	service_ordering
+#"""
+
+#for Test in Split(Tests):
+#    env.BuildTest( Test, Test + ".cpp" )
+

@@ -1,0 +1,13 @@
+Import( 'env' )
+
+env.AppendUnique( DYNAMICLIBS = [
+    env.BoostSharedLibrary( 'system' ),
+    env.BoostSharedLibrary( 'chrono' ),
+    env.BoostSharedLibrary( 'coroutine' ),
+    env.BoostSharedLibrary( 'context' ),
+    env.BoostSharedLibrary( 'thread' ),
+] )
+
+for Source in env.GlobFiles('*.cpp'):
+    env.BuildTest( Source[:-4], Source )
+

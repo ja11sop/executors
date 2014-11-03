@@ -1,0 +1,31 @@
+Import( 'env' )
+
+for Source in env.GlobFiles('*.cpp'):
+    env.BuildTest( Source[:-4], Source )
+
+# Another alternative is to list each build action individually.
+# This allows the expected test outcome to be specified for any
+# test. By default the expected test result is 'success'
+
+#env.BuildTest( 'dispatch_int',              'dispatch_int.cpp',             expected='success' )
+#env.BuildTest( 'dispatch_void',             'dispatch_void.cpp',            expected='success' )
+#env.BuildTest( 'dispatch_after_int',        'dispatch_after_int.cpp',       expected='success' )
+#env.BuildTest( 'dispatch_after_void',       'dispatch_after_void.cpp',      expected='success' )
+#env.BuildTest( 'dispatch_at_int',           'dispatch_at_int.cpp',          expected='success' )
+#env.BuildTest( 'dispatch_at_void',          'dispatch_at_void.cpp',         expected='success' )
+#env.BuildTest( 'post_int',                  'post_int.cpp',                 expected='success' )
+#env.BuildTest( 'post_void',                 'post_void.cpp',                expected='success' )
+#env.BuildTest( 'wrap_dispatch_int',         'wrap_dispatch_int.cpp',        expected='success' )
+#env.BuildTest( 'wrap_dispatch_void',        'wrap_dispatch_void.cpp',       expected='success' )
+#env.BuildTest( 'wrap_dispatch_after_int',   'wrap_dispatch_after_int.cpp',  expected='success' )
+#env.BuildTest( 'wrap_dispatch_after_void',  'wrap_dispatch_after_void.cpp', expected='success' )
+#env.BuildTest( 'wrap_dispatch_at_int',      'wrap_dispatch_at_int.cpp',     expected='success' )
+#env.BuildTest( 'wrap_dispatch_at_void',     'wrap_dispatch_at_void.cpp',    expected='success' )
+#env.BuildTest( 'wrap_post_int',             'wrap_post_int.cpp',            expected='success' )
+#env.BuildTest( 'wrap_post_void',            'wrap_post_void.cpp',           expected='success' )
+#env.BuildTest( 'curry_int',                 'curry_int.cpp',                expected='success' )
+#env.BuildTest( 'curry_int_int',             'curry_int_int.cpp',            expected='success' )
+#env.BuildTest( 'curry_int_void',            'curry_int_void.cpp',           expected='success' )
+#env.BuildTest( 'curry_void',                'curry_void.cpp',               expected='success' )
+
+

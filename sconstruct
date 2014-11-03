@@ -1,0 +1,26 @@
+# Pull in all the Cuppa goodies..
+try:
+    import cuppa
+except ImportError:
+    print "Cuppa not found, installing..."
+    import subprocess, shlex
+    subprocess.call( shlex.split( 'pip install cuppa -t .' ) )
+    import cuppa
+
+
+def default_build_profile( env, toolchain, variant ):
+
+    env.AppendUnique( INCPATH = [
+        '#/include',
+    ])
+
+    if toolchain.family() == "gcc":
+        env.AppendUnique( CXXFLAGS = [
+            '-Wno-unused-local-typedefs'
+        ])
+
+
+# Initialise any defaults
+cuppa.run(
+    default_profiles = [ default_build_profile ]
+)

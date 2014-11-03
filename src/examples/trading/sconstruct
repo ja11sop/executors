@@ -1,0 +1,24 @@
+#-------------------------------------------------------------------------------
+#   sconstruct file
+#-------------------------------------------------------------------------------
+
+# Pull in all the Contruct goodies..
+from construct import Construct
+
+
+def default_build_profile( env, toolchain, variant ):
+
+    env.AppendUnique( INCPATH = [
+        '#/../../../include',
+    ])
+
+    if toolchain.family() == "gcc":
+        env.AppendUnique( CXXFLAGS = [
+            '-Wno-unused-local-typedefs'
+        ])
+
+
+# Initialise any defaults
+Construct(
+    default_profiles = [ default_build_profile ]
+)

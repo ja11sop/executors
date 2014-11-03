@@ -1,0 +1,4 @@
+Import( 'env', 'final_dir' )
+
+for Source in env.GlobFiles('*.cpp'):
+    env.BuildTest( Source[:-4], Source )
